@@ -65,4 +65,11 @@ resource "proxmox_vm_qemu" "truenas" {
         type = "scsi"
         size = "32G"
     }
+
+    network {
+        bridge    = "vmbr0"
+        firewall  = false
+        link_down = false
+        model     = "e1000"
+    }
 }
