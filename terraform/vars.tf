@@ -24,6 +24,10 @@ variable "ubuntu_ip" {
     default = ""
 }
 
+variable "truenas_ip" {
+    default = ""
+}
+
 variable "ubuntu_gateway" {
     default = ""
 }

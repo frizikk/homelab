@@ -45,3 +45,24 @@ resource "proxmox_lxc" "ubuntu" {
     }
 }
 
+resource "proxmox_vm_qemu" "truenas" {
+    count = 1
+    name = "truenas"
+    target_node = "pve"
+    iso = "local:iso/TrueNAS-SCALE-22.02.2.1.iso"
+    vmid = 100
+    agent = 1
+
+    cores = 2
+    memory = 8192
+    balloon = 0
+
+    oncreate = false
+    onboot = true
+
+    disk {
+        storage = "local-lvm"
+        type = "scsi"
+        size = "32G"
+    }
+}
